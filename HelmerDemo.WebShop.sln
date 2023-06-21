@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelmerDemo.WebShop.Infrastr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelmerDemo.WebShop.Application.UnitTest", "Tests\HelmerDemo.WebShop.Application.UnitTest\HelmerDemo.WebShop.Application.UnitTest.csproj", "{E1BD3669-D2A3-4C95-AD21-2D8E8BAA2D42}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{021E9E21-C82F-4986-8133-972627EC3D97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +44,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E1BD3669-D2A3-4C95-AD21-2D8E8BAA2D42} = {021E9E21-C82F-4986-8133-972627EC3D97}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {572E0026-B8EA-443F-A8EB-1F57607AD60B}
