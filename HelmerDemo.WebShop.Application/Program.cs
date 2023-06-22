@@ -1,29 +1,85 @@
+using HelmerDemo.WebShop.Application.Middleware;
+using HelmerDemo.WebShop.Application.Models;
+using Microsoft.AspNetCore.Mvc.Versioning.Conventions;
+using Microsoft.AspNetCore.Mvc.Versioning;
 using Serilog;
+using Microsoft.AspNetCore.Mvc.ApiExplorer;
+using HelmerDemo.WebShop.Application.Helpers;
+using Microsoft.AspNetCore.Mvc;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+AddServices(builder);
+ConfigureRequestPipeline(builder.Build());
 
-builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
-builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
-
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+// Add Services to the container
+static void AddServices(WebApplicationBuilder builder)
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    builder.Services.Configure<HeaderSettings>(options => builder.Configuration.GetSection("HeaderSettings").Bind(options));
+    builder.Services.AddTransient<ApiSecurityMiddleware>();
+
+    if (IsDevelopment())
+    {
+        builder.Services.AddTransient<WebSecurityMiddleware>();
+    }
+    builder.Services.AddControllers();
+
+    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+
+    builder.Services.AddApiVersioning(options =>
+    {
+        options.DefaultApiVersion = new ApiVersion(1, 0);
+        options.AssumeDefaultVersionWhenUnspecified = true;
+        options.ApiVersionReader = new UrlSegmentApiVersionReader();
+        options.Conventions.Add(new VersionByNamespaceConvention());
+    });
+    // Add ApiExplorer to discover versions
+    builder.Services.AddVersionedApiExplorer(setup =>
+    {
+        setup.GroupNameFormat = "'v'VVV";
+        setup.SubstituteApiVersionInUrl = true;
+    });
+
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+
+    builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
+
+    builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
 }
 
-app.UseHttpsRedirection();
+// Configure the HTTP request pipeline
+static void ConfigureRequestPipeline(WebApplication app)
+{
+    var apiVersionDescriptionProvider = app.Services.GetRequiredService<IApiVersionDescriptionProvider>();
 
-app.UseAuthorization();
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI(options =>
+        {
+            foreach (var description in apiVersionDescriptionProvider.ApiVersionDescriptions)
+            {
+                options.SwaggerEndpoint($"/swagger/{description.GroupName}/swagger.json",
+                    description.GroupName.ToUpperInvariant());
+            }
+        });
+    }
 
-app.MapControllers();
+    app.UseHttpsRedirection();
 
-app.Run();
+    app.UseAuthorization();
+
+    app.MapControllers();
+
+    app.Run();
+}
+
+static bool IsDevelopment()
+{
+    var aspEnvironment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+    return string.IsNullOrEmpty(aspEnvironment) ? false : aspEnvironment.ToLowerInvariant().Equals("development");
+}
