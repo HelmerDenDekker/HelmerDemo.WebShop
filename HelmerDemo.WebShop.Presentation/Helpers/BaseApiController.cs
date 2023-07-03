@@ -1,8 +1,7 @@
-﻿using HelmerDemo.WebShop.Application.Attributes;
-using HelmerDemo.WebShop.Domain.SeedWork.Models;
+﻿using HelmerDemo.WebShop.Domain.SeedWork.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace HelmerDemo.WebShop.Application.Controllers
+namespace HelmerDemo.WebShop.Presentation.Helpers
 {
     [SecurityHeaders]
     [ApiController]

@@ -1,8 +1,8 @@
-﻿using HelmerDemo.WebShop.Application.Helpers;
-using HelmerDemo.WebShop.Application.Models;
+﻿using HelmerDemo.WebShop.Presentation.Helpers;
+using HelmerDemo.WebShop.Presentation.Models;
 using Microsoft.Extensions.Options;
 
-namespace HelmerDemo.WebShop.Application.Middleware
+namespace HelmerDemo.WebShop.Presentation.Middleware
 {
     /// <summary>
     /// Web security Middleware

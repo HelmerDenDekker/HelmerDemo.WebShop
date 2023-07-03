@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using HelmerDemo.WebShop.Presentation.Helpers;
+using Microsoft.AspNetCore.Mvc;
 
-namespace HelmerDemo.WebShop.Application.Controllers
+namespace HelmerDemo.WebShop.Presentation.Controllers
 {
     [ApiVersion("1.0")]
     public class OrderController : BaseApiController

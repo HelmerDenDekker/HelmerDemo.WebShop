@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace HelmerDemo.WebShop.Application.Helpers
+namespace HelmerDemo.WebShop.Presentation.Models
 {
     public class ApplicationVersion
     {
@@ -10,9 +10,9 @@ namespace HelmerDemo.WebShop.Application.Helpers
         public ApplicationVersion()
         {
             var number = Assembly.GetExecutingAssembly()?.GetName().Version?.ToString();
-            this.Number = number??=string.Empty;
+            Number = number ??= string.Empty;
             var name = Assembly.GetExecutingAssembly()?.GetName().Name?.ToString();
-            this.Name = name??=string.Empty;
+            Name = name ??= string.Empty;
         }
 
         /// <summary>

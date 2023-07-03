@@ -1,4 +1,4 @@
-﻿namespace HelmerDemo.WebShop.Application.Helpers
+﻿namespace HelmerDemo.WebShop.Presentation.Helpers
 {
     /// <summary>
     /// This class contains the Security Headers (for use in attributes and middleware)

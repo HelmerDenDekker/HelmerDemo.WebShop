@@ -1,11 +1,11 @@
-using HelmerDemo.WebShop.Application.Middleware;
-using HelmerDemo.WebShop.Application.Models;
 using Microsoft.AspNetCore.Mvc.Versioning.Conventions;
 using Microsoft.AspNetCore.Mvc.Versioning;
 using Serilog;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
-using HelmerDemo.WebShop.Application.Helpers;
 using Microsoft.AspNetCore.Mvc;
+using HelmerDemo.WebShop.Presentation.Middleware;
+using HelmerDemo.WebShop.Presentation.Helpers;
+using HelmerDemo.WebShop.Presentation.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 
-namespace HelmerDemo.WebShop.Application.Helpers
+namespace HelmerDemo.WebShop.Presentation.Helpers
 {
     public class ConfigureSwaggerOptions
     : IConfigureNamedOptions<SwaggerGenOptions>

@@ -1,7 +1,7 @@
-using HelmerDemo.WebShop.Application.Helpers;
+using HelmerDemo.WebShop.Presentation.Models;
 using System.Reflection;
 
-namespace HelmerDemo.WebShop.Application.UnitTest
+namespace HelmerDemo.WebShop.Presentation.UnitTest
 {
     [TestClass]
     public class ApplicationVersionTests
@@ -12,7 +12,7 @@ namespace HelmerDemo.WebShop.Application.UnitTest
             //Arrange
             var assembly = typeof(ApplicationVersion).GetTypeInfo().Assembly;
             var number = assembly.GetName().Version?.ToString();
-            
+
             //Act
 
             var applicationVersion = new ApplicationVersion();

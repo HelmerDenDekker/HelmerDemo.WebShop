@@ -1,6 +1,6 @@
-﻿using HelmerDemo.WebShop.Application.Helpers;
+﻿using HelmerDemo.WebShop.Presentation.Helpers;
 
-namespace HelmerDemo.WebShop.Application.Middleware
+namespace HelmerDemo.WebShop.Presentation.Middleware
 {
     /// <summary>
     /// Generic SecurityMiddleware class, please use specific implementations of this class

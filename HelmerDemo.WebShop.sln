@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelmerDemo.WebShop.Domain", "HelmerDemo.WebShop.Domain\HelmerDemo.WebShop.Domain.csproj", "{EE1103D2-C57D-4F03-B4B2-29AA59E043F2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelmerDemo.WebShop.Application", "HelmerDemo.WebShop.Application\HelmerDemo.WebShop.Application.csproj", "{66311DB1-A0B7-445D-BF91-9D6C8ADB74CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelmerDemo.WebShop.Presentation", "HelmerDemo.WebShop.Presentation\HelmerDemo.WebShop.Presentation.csproj", "{66311DB1-A0B7-445D-BF91-9D6C8ADB74CB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{DA497FE7-3384-45AA-804D-8E5F96EEFF10}"
 	ProjectSection(SolutionItems) = preProject
@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelmerDemo.WebShop.Infrastructure", "HelmerDemo.WebShop.Infrastructure\HelmerDemo.WebShop.Infrastructure.csproj", "{9CBC69B5-A692-47C7-9309-7BC962515DC1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelmerDemo.WebShop.Application.UnitTest", "Tests\HelmerDemo.WebShop.Application.UnitTest\HelmerDemo.WebShop.Application.UnitTest.csproj", "{E1BD3669-D2A3-4C95-AD21-2D8E8BAA2D42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelmerDemo.WebShop.Presentation.UnitTest", "Tests\HelmerDemo.WebShop.Presentation.UnitTest\HelmerDemo.WebShop.Presentation.UnitTest.csproj", "{E1BD3669-D2A3-4C95-AD21-2D8E8BAA2D42}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{021E9E21-C82F-4986-8133-972627EC3D97}"
 EndProject

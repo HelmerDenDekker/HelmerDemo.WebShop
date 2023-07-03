@@ -1,6 +1,6 @@
-﻿using HelmerDemo.WebShop.Application.Helpers;
+﻿using HelmerDemo.WebShop.Presentation.Helpers;
 
-namespace HelmerDemo.WebShop.Application.Middleware
+namespace HelmerDemo.WebShop.Presentation.Middleware
 {
     /// <summary>
     /// Security Middleware for Web API

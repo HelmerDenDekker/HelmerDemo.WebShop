@@ -1,8 +1,8 @@
-﻿using HelmerDemo.WebShop.Application.Helpers;
+﻿using HelmerDemo.WebShop.Presentation.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 
-namespace HelmerDemo.WebShop.Application.Attributes
+namespace HelmerDemo.WebShop.Presentation.Attributes
 {
     /// <summary>
     /// Attribute for Security Headers
@@ -19,12 +19,12 @@ namespace HelmerDemo.WebShop.Application.Attributes
 
             if (result is ViewResult)
             {
-                this.AddHeaders(context, SecurityHeaderHelper.MvcSecurityHeaders(36000));
+                AddHeaders(context, SecurityHeaderHelper.MvcSecurityHeaders(36000));
             }
 
             if (result is ActionResult)
             {
-                this.AddHeaders(context, SecurityHeaderHelper.ApiSecurityHeaders(36000));
+                AddHeaders(context, SecurityHeaderHelper.ApiSecurityHeaders(36000));
             }
         }
 

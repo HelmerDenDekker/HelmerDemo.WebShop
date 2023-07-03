@@ -1,4 +1,4 @@
-﻿namespace HelmerDemo.WebShop.Application.Models
+﻿namespace HelmerDemo.WebShop.Presentation.Models
 {
     /// <summary>
     /// The Http response header settings
