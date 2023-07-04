@@ -1,4 +1,4 @@
-﻿namespace HelmerDemo.WebShop.Domain.Order
+﻿namespace HelmerDemo.WebShop.Domain.OrderModel
 {
     public enum OrderStatus
     {

@@ -1,6 +1,6 @@
 ﻿using HelmerDemo.WebShop.Domain.Shared;
 
-namespace HelmerDemo.WebShop.Domain.Order
+namespace HelmerDemo.WebShop.Domain.OrderModel
 {
     /// <summary>
     /// The customer value object for order aggregate

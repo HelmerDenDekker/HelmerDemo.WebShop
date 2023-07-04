@@ -1,4 +1,4 @@
-﻿namespace HelmerDemo.WebShop.Domain.Customer
+﻿namespace HelmerDemo.WebShop.Domain.CustomerModel
 {
     public record Address
     {
