@@ -23,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HelmerDemo.WebShop.Application\HelmerDemo.WebShop.Application.csproj" />
     <ProjectReference Include="..\HelmerDemo.WebShop.Domain\HelmerDemo.WebShop.Domain.csproj" />
   </ItemGroup>
 

@@ -52,7 +52,7 @@ namespace HelmerDemo.WebShop.Domain.CustomerModel
 
             var customer = new Customer(fullName, email);
 
-            return Result.Ok.DownCast(customer);
+            return Result.Created.DownCast(customer);
         }
 
         private Customer(string fullName, string email)

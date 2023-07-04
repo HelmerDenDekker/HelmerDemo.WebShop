@@ -5,11 +5,11 @@
         /// <summary>
         /// Gets the full name of the customer
         /// </summary>
-        public string FullName { get; private set; }
+        public string FullName { get;  set; }
 
         /// <summary>
         /// Gets the Email address of the customer
         /// </summary>
-        public string Email { get; private set; } = string.Empty;
+        public string Email { get;  set; } = string.Empty;
     }
 }

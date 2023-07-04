@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using HelmerDemo.WebShop.Presentation.Middleware;
 using HelmerDemo.WebShop.Presentation.Helpers;
 using HelmerDemo.WebShop.Presentation.Models;
+using HelmerDemo.WebShop.Application.CustomerService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,8 +26,10 @@ static void AddServices(WebApplicationBuilder builder)
     }
     builder.Services.AddControllers();
 
-    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+    // Services
+    builder.Services.AddScoped<ICustomerService, CustomerService>();
 
+    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
     builder.Services.AddApiVersioning(options =>
     {

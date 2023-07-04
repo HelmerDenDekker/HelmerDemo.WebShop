@@ -25,7 +25,6 @@ namespace HelmerDemo.WebShop.Domain.CustomerModel
         /// <summary>
         /// Gets the phone number of the customer
         /// </summary>
-        [Phone]
         public string PhoneNumber { get; private set; } = string.Empty;
 
 
