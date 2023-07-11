@@ -1,10 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace HelmerDemo.WebShop.Domain.CustomerModel
+﻿namespace HelmerDemo.WebShop.Domain.CustomerModel
 {
     public class CustomerDetails
     {
-        public Guid CustomerId { get; private set; }
+        public Guid CustomerUniqueId { get; private set; }
 
         /// <summary>
         /// Gets the customer number
@@ -26,7 +24,5 @@ namespace HelmerDemo.WebShop.Domain.CustomerModel
         /// Gets the phone number of the customer
         /// </summary>
         public string PhoneNumber { get; private set; } = string.Empty;
-
-
     }
 }

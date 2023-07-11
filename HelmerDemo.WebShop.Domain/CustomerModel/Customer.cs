@@ -1,13 +1,12 @@
 ﻿using HelmerDemo.WebShop.Domain.SeedWork.Extensions;
 using HelmerDemo.WebShop.Domain.SeedWork.Models;
-using System.ComponentModel.DataAnnotations;
 
 namespace HelmerDemo.WebShop.Domain.CustomerModel
 {
     public class Customer
     {
         /// <summary>
-        /// The unique identifier for this entity
+        /// The unique identifier for this domain entity
         /// </summary>
         public Guid UniqueId { get; private set; }
 

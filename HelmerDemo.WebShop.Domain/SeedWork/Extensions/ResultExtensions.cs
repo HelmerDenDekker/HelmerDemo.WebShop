@@ -1,5 +1,4 @@
 ﻿using HelmerDemo.WebShop.Domain.SeedWork.Models;
-using System.Net.Http.Headers;
 
 namespace HelmerDemo.WebShop.Domain.SeedWork.Extensions
 {

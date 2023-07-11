@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace HelmerDemo.WebShop.Infrastructure.CustomerModel
+﻿namespace HelmerDemo.WebShop.Infrastructure.CustomerModel
 {
     public class CustomerEntity
     {
         /// <summary>
-        /// The unique identifier for this entity
+        /// Gets or sets the primary key for this persistance entity
         /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the unique identifier for the domain entity
+        /// </summary>
+        public Guid UniqueId { get; private set; }
 
         /// <summary>
         /// Gets the full name of the customer
@@ -27,5 +26,15 @@ namespace HelmerDemo.WebShop.Infrastructure.CustomerModel
         /// Gets the date the customer account was created
         /// </summary>
         public DateTime RegisteredOn { get; set; }
+
+        /// <summary>
+        /// Navigational property, the Customer has a optional to one relation with CustomerDetails.
+        /// </summary>
+        public int? CustomerDetailId { get; set; }
+
+        /// <summary>
+        /// Navigational property, the Customer has a optional to one relation with CustomerDetails.
+        /// </summary>
+        public CustomerDetailEntity? CustomerDetails { get; set; }
     }
 }
