@@ -7,6 +7,8 @@ using HelmerDemo.WebShop.Presentation.Middleware;
 using HelmerDemo.WebShop.Presentation.Helpers;
 using HelmerDemo.WebShop.Presentation.Models;
 using HelmerDemo.WebShop.Application.CustomerService;
+using HelmerDemo.WebShop.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,6 +53,7 @@ static void AddServices(WebApplicationBuilder builder)
     builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
 
     builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
+    builder.Services.AddDbContext<CustomerDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("CustomerDatabase")));
 }
 
 // Configure the HTTP request pipeline

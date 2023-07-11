@@ -9,7 +9,7 @@ namespace HelmerDemo.WebShop.Domain.CustomerModel
         /// <summary>
         /// The unique identifier for this entity
         /// </summary>
-        public Guid Id { get; private set; }
+        public Guid UniqueId { get; private set; }
 
         /// <summary>
         /// Gets the full name of the customer
@@ -63,7 +63,7 @@ namespace HelmerDemo.WebShop.Domain.CustomerModel
             Email = email;
 
             // The application user does not need to know about these (internal) fields.
-            Id = Guid.NewGuid();
+            UniqueId = Guid.NewGuid();
             RegisteredOn = DateTime.Now;
         }
 
