@@ -1,7 +1,14 @@
 ﻿namespace HelmerDemo.WebShop.Infrastructure.CustomerModel
 {
-    public class CustomerEntity
+    public class Customer
     {
+        public Customer(Guid uniqueId, DateTime registeredOn, string fullName, string email)
+        {
+            FullName = fullName;
+            Email = email;
+            UniqueId = uniqueId;
+            RegisteredOn = registeredOn;
+        }
         /// <summary>
         /// Gets or sets the primary key for this persistance entity
         /// </summary>
@@ -15,17 +22,17 @@
         /// <summary>
         /// Gets the full name of the customer
         /// </summary>
-        public string FullName { get; set; } = string.Empty;
+        public string FullName { get; private set; } = string.Empty;
 
         /// <summary>
         /// Gets the Email address of the customerCustomer
         /// </summary>
-        public string Email { get; set; } = string.Empty;
+        public string Email { get; private set; } = string.Empty;
 
         /// <summary>
         /// Gets the date the customer account was created
         /// </summary>
-        public DateTime RegisteredOn { get; set; }
+        public DateTime RegisteredOn { get; private set; }
 
         /// <summary>
         /// Navigational property, the Customer has a optional to one relation with CustomerDetails.
@@ -35,6 +42,6 @@
         /// <summary>
         /// Navigational property, the Customer has a optional to one relation with CustomerDetails.
         /// </summary>
-        public CustomerDetailEntity? CustomerDetails { get; set; }
+        public CustomerDetail? CustomerDetails { get; set; }
     }
 }

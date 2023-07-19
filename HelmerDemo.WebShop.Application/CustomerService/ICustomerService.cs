@@ -9,6 +9,6 @@ namespace HelmerDemo.WebShop.Application.CustomerService
         /// </summary>
         /// <param name="customerDto"></param>
         /// <returns></returns>
-        public Result CreateAccount(CustomerDto customerDto);
+        public Result CreateAccount(AddCustomerDto customerDto);
     }
 }

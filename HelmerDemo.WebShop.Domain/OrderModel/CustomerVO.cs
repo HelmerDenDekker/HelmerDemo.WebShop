@@ -5,7 +5,7 @@ namespace HelmerDemo.WebShop.Domain.OrderModel
     /// <summary>
     /// The customer value object for order aggregate
     /// </summary>
-    public record Customer
+    public record CustomerVO
     {
         /// <summary>
         /// Gets the customer number
@@ -20,12 +20,12 @@ namespace HelmerDemo.WebShop.Domain.OrderModel
         /// <summary>
         /// Gets the billing address
         /// </summary>
-        public Address BillingAddress { get; init; }
+        public AddressVO BillingAddress { get; init; }
 
         /// <summary>
         /// Gets the shipping address
         /// </summary>
-        public Address ShippingAddress { get; init; }
+        public AddressVO ShippingAddress { get; init; }
 
         /// <summary>
         /// Gets the shipping option

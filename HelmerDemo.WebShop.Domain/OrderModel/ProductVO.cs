@@ -1,6 +1,6 @@
 ﻿namespace HelmerDemo.WebShop.Domain.OrderModel
 {
-    public record Product
+    public record ProductVO
     {
         /// <summary>
         /// Gets the product number
@@ -15,6 +15,6 @@
         /// <summary>
         /// Gets the price of the product
         /// </summary>
-        public Money Price { get; init; }
+        public MoneyVO Price { get; init; }
     }
 }

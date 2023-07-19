@@ -1,6 +1,6 @@
 ﻿namespace HelmerDemo.WebShop.Domain.OrderModel
 {
-    public record OrderItem
+    public record OrderItemVO
     {
         /// <summary>
         /// Gets or sets the quantity
@@ -10,12 +10,12 @@
         /// <summary>
         /// Gets the product
         /// </summary>
-        public Product Product { get; init; }
+        public ProductVO Product { get; init; }
 
         /// <summary>
         /// Gets the price of the orderitem
         /// </summary>
-        public Money Price { get; init; }
+        public MoneyVO Price { get; init; }
 
 
         // As a User I want to know the price of my orderitem

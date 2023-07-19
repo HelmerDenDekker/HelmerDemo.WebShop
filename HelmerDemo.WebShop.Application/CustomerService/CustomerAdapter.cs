@@ -1,10 +1,13 @@
-﻿namespace HelmerDemo.WebShop.Application.CustomerService
+﻿using HelmerDemo.WebShop.Domain.CustomerModel;
+using HelmerDemo.WebShop.Infrastructure.CustomerModel;
+
+namespace HelmerDemo.WebShop.Application.CustomerService
 {
     public class CustomerAdapter
     {
-        //public WebShop.Domain.Customer.Customer MapCustomer(CustomerDto customer)
-        //{
-        //    return 
-        //}
+        public Customer CreateFromCustomerEntity(CustomerEntity customerEntity)
+        {
+            return new Customer(customerEntity.UniqueId, customerEntity.RegisteredOn, customerEntity.FullName, customerEntity.Email);
+        }
     }
 }

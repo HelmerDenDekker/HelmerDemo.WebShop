@@ -3,7 +3,7 @@
     /// <summary>
     /// Money value object for order aggregate
     /// </summary>
-    public record Money
+    public record MoneyVO
     {
         /// <summary>
         /// Gets the currency

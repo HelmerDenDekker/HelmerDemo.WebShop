@@ -1,6 +1,6 @@
 ﻿namespace HelmerDemo.WebShop.Domain.OrderModel
 {
-    public record Address
+    public record AddressVO
     {
         /// <summary>
         /// Gets the street

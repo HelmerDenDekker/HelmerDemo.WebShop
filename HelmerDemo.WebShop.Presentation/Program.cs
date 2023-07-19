@@ -9,6 +9,8 @@ using HelmerDemo.WebShop.Presentation.Models;
 using HelmerDemo.WebShop.Application.CustomerService;
 using HelmerDemo.WebShop.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using HelmerDemo.WebShop.Domain.CustomerModel;
+using HelmerDemo.WebShop.Infrastructure.CustomerModel;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +32,8 @@ static void AddServices(WebApplicationBuilder builder)
 
     // Services
     builder.Services.AddScoped<ICustomerService, CustomerService>();
+    builder.Services.AddScoped<ICustomerAggregate, CustomerAggregate>();
+    builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 

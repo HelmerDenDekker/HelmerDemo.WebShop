@@ -16,17 +16,17 @@ namespace HelmerDemo.WebShop.Infrastructure
         /// <summary>
         /// Gets or sets the Customers database table set.
         /// </summary>
-        public DbSet<CustomerEntity> Customers { get; set; }
+        public DbSet<Customer> Customers { get; set; }
 
         /// <summary>
         /// Gets or sets the Addresses for Customers
         /// </summary>
-        public DbSet<AddressEntity> Addresses { get; set; }
+        public DbSet<Address> Addresses { get; set; }
 
         /// <summary>
         /// Gets or sets the CustomerDetails for the Customers
         /// </summary>
-        public DbSet<CustomerDetailEntity> CustomersDetails { get; set; }
+        public DbSet<CustomerDetail> CustomersDetails { get; set; }
 
 
         /// <inheritdoc />
@@ -35,24 +35,24 @@ namespace HelmerDemo.WebShop.Infrastructure
             // We only have to create relations not discovered by convention: https://learn.microsoft.com/en-us/ef/core/modeling/relationships/conventions
 
             // For Customers: optional to one relation with CustomerDetails
-            modelBuilder.Entity<CustomerEntity>()
+            modelBuilder.Entity<Customer>()
                 .HasOne(customer => customer.CustomerDetails)
                 .WithOne(customerdetails => customerdetails.Customer)
-                .HasForeignKey<CustomerDetailEntity>(customerdetails => customerdetails.CustomerId);
+                .HasForeignKey<CustomerDetail>(customerdetails => customerdetails.CustomerId);
 
-            modelBuilder.Entity<CustomerDetailEntity>()
+            modelBuilder.Entity<CustomerDetail>()
                 .HasOne(customerdetails => customerdetails.Customer)
                 .WithOne(customer => customer.CustomerDetails)
-                .HasForeignKey<CustomerEntity>(customer => customer.CustomerDetailId);
+                .HasForeignKey<Customer>(customer => customer.CustomerDetailId);
 
             // For Customerdetails, one to many relations with Address
 
-            modelBuilder.Entity<CustomerDetailEntity>()
+            modelBuilder.Entity<CustomerDetail>()
                 .HasMany(customerdetails => customerdetails.Addresses)
                 .WithOne(address => address.CustomerDetails)
                 .HasForeignKey(address => address.CustomerDetailId);
 
-            modelBuilder.Entity<AddressEntity>()
+            modelBuilder.Entity<Address>()
                 .HasOne(address=>address.CustomerDetails)
                 .WithMany(customerdetails => customerdetails.Addresses)
                 .HasForeignKey(address => address.CustomerDetailId);

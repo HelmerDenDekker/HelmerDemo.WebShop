@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\HelmerDemo.WebShop.Domain\HelmerDemo.WebShop.Domain.csproj" />
+    <ProjectReference Include="..\HelmerDemo.WebShop.Infrastructure\HelmerDemo.WebShop.Infrastructure.csproj" />
   </ItemGroup>
 
   <ItemGroup>

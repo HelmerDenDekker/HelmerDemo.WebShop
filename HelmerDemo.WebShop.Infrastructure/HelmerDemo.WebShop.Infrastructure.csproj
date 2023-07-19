@@ -13,6 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\HelmerDemo.WebShop.Domain\HelmerDemo.WebShop.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Update="SonarAnalyzer.CSharp" Version="9.5.0.73987" />
   </ItemGroup>
 

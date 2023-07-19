@@ -20,9 +20,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelmerDemo.WebShop.Presenta
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{021E9E21-C82F-4986-8133-972627EC3D97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelmerDemo.WebShop.Application", "HelmerDemo.WebShop.Application\HelmerDemo.WebShop.Application.csproj", "{AB68C971-8482-42A2-A90D-796A946A021B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelmerDemo.WebShop.Application", "HelmerDemo.WebShop.Application\HelmerDemo.WebShop.Application.csproj", "{AB68C971-8482-42A2-A90D-796A946A021B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelmerDemo.WebShop.Domain.UnitTest", "Tests\HelmerDemo.WebShop.Domain.UnitTest\HelmerDemo.WebShop.Domain.UnitTest.csproj", "{C9E8CC7D-5CCB-4280-8905-4FF0D93B98B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HelmerDemo.WebShop.Domain.UnitTest", "Tests\HelmerDemo.WebShop.Domain.UnitTest\HelmerDemo.WebShop.Domain.UnitTest.csproj", "{C9E8CC7D-5CCB-4280-8905-4FF0D93B98B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelmerDemo.WebShop.Infrastructure.UnitTest", "Tests\HelmerDemo.WebShop.Infrastructure.UnitTest\HelmerDemo.WebShop.Infrastructure.UnitTest.csproj", "{2FBB9CFF-7209-47B4-B094-6C82018A36AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelmerDemo.WebShop.Application.UnitTest", "Tests\HelmerDemo.WebShop.Application.UnitTest\HelmerDemo.WebShop.Application.UnitTest.csproj", "{0CC92218-E3E8-4BA6-B0AB-9470EEB642FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -54,6 +58,14 @@ Global
 		{C9E8CC7D-5CCB-4280-8905-4FF0D93B98B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9E8CC7D-5CCB-4280-8905-4FF0D93B98B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9E8CC7D-5CCB-4280-8905-4FF0D93B98B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FBB9CFF-7209-47B4-B094-6C82018A36AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FBB9CFF-7209-47B4-B094-6C82018A36AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FBB9CFF-7209-47B4-B094-6C82018A36AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FBB9CFF-7209-47B4-B094-6C82018A36AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CC92218-E3E8-4BA6-B0AB-9470EEB642FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CC92218-E3E8-4BA6-B0AB-9470EEB642FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CC92218-E3E8-4BA6-B0AB-9470EEB642FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CC92218-E3E8-4BA6-B0AB-9470EEB642FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +73,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E1BD3669-D2A3-4C95-AD21-2D8E8BAA2D42} = {021E9E21-C82F-4986-8133-972627EC3D97}
 		{C9E8CC7D-5CCB-4280-8905-4FF0D93B98B2} = {021E9E21-C82F-4986-8133-972627EC3D97}
+		{2FBB9CFF-7209-47B4-B094-6C82018A36AC} = {021E9E21-C82F-4986-8133-972627EC3D97}
+		{0CC92218-E3E8-4BA6-B0AB-9470EEB642FE} = {021E9E21-C82F-4986-8133-972627EC3D97}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {572E0026-B8EA-443F-A8EB-1F57607AD60B}

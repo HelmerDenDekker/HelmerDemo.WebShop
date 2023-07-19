@@ -18,7 +18,7 @@ namespace HelmerDemo.WebShop.Presentation.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [HttpPost]
-        public ActionResult CreateAccount(CustomerDto customerDto) 
+        public ActionResult CreateAccount(AddCustomerDto customerDto) 
         {
             return ActionResponse(_customerService.CreateAccount(customerDto));
         }

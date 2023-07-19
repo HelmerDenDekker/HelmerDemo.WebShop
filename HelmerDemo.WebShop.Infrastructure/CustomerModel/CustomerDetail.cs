@@ -1,6 +1,6 @@
 ﻿namespace HelmerDemo.WebShop.Infrastructure.CustomerModel
 {
-    public class CustomerDetailEntity
+    public class CustomerDetail
     {
         /// <summary>
         /// Gets or sets the primary key for this persistance entity
@@ -20,7 +20,7 @@
         /// <summary>
         /// Navigational property, the CustomerDetails have a one to one relation with (Billing)Address.
         /// </summary>
-        public List<AddressEntity> Addresses { get; set; } = new List<AddressEntity>();
+        public List<Address> Addresses { get; set; } = new List<Address>();
 
 
         /// <summary>
@@ -31,6 +31,6 @@
         /// <summary>
         /// Navigational property, the CustomerDetails have a one to one relation with Customer.
         /// </summary>
-        public CustomerEntity Customer { get; set; }
+        public Customer Customer { get; set; }
     }
 }

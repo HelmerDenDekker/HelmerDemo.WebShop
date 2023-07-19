@@ -3,7 +3,7 @@
     /// <summary>
     /// Order Aggregate
     /// </summary>
-    public class Order
+    public class OrderEntity
     {
         /// <summary>
         /// Gets the Order Number
@@ -23,12 +23,12 @@
         /// <summary>
         /// Gets the price of the total order
         /// </summary>
-        public Money Price { get; private set; }
+        public MoneyVO Price { get; private set; }
 
         /// <summary>
         /// Gets the order item
         /// </summary>
-        public List<OrderItem> Items { get; private set; } = new List<OrderItem>();
+        public List<OrderItemVO> Items { get; private set; } = new List<OrderItemVO>();
 
         // As a User I want to know the price of my order
     }
