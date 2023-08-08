@@ -1,10 +1,5 @@
 ﻿using HelmerDemo.WebShop.Domain.SeedWork.Extensions;
 using HelmerDemo.WebShop.Domain.SeedWork.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HelmerDemo.WebShop.Domain.CustomerModel
 {
@@ -16,29 +11,9 @@ namespace HelmerDemo.WebShop.Domain.CustomerModel
         /// <inheritdoc/>
         public Result<CustomerEntity> CreateCustomer(string fullName, string email)
         {
-            // validation
+            var customerLogic = new CustomerEntity();
 
-            if (fullName.IsNullOrWhiteSpace())
-            {
-                return Result.BadRequest.DownCast<CustomerEntity>();
-            }
-
-            if (email.IsNullOrWhiteSpace())
-            {
-                return Result.BadRequest.DownCast<CustomerEntity>();
-            }
-
-            if (!email.IsValidEmail())
-            {
-                return Result.BadRequest.DownCast<CustomerEntity>();
-            }
-
-            var uniqueId = Guid.NewGuid();
-            var registeredOn = DateTime.Now;
-
-            var customer = new CustomerEntity(uniqueId, registeredOn, fullName, email);
-
-            return Result.Created.DownCast(customer);
+            return customerLogic.CreateCustomer(fullName, email);
         }
     }
 }

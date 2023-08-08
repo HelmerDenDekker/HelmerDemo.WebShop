@@ -1,7 +1,3 @@
-using HelmerDemo.WebShop.Infrastructure.CustomerModel;
-using Microsoft.EntityFrameworkCore;
-using Moq;
-
 namespace HelmerDemo.WebShop.Infrastructure.UnitTest
 {
     /// <summary>

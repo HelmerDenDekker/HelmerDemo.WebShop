@@ -2,6 +2,13 @@
 {
     public class Customer
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Customer"/> class.
+        /// </summary>
+        /// <param name="uniqueId"></param>
+        /// <param name="registeredOn"></param>
+        /// <param name="fullName"></param>
+        /// <param name="email"></param>
         public Customer(Guid uniqueId, DateTime registeredOn, string fullName, string email)
         {
             FullName = fullName;
@@ -9,6 +16,7 @@
             UniqueId = uniqueId;
             RegisteredOn = registeredOn;
         }
+
         /// <summary>
         /// Gets or sets the primary key for this persistance entity
         /// </summary>
@@ -22,12 +30,12 @@
         /// <summary>
         /// Gets the full name of the customer
         /// </summary>
-        public string FullName { get; private set; } = string.Empty;
+        public string FullName { get; private set; }
 
         /// <summary>
         /// Gets the Email address of the customerCustomer
         /// </summary>
-        public string Email { get; private set; } = string.Empty;
+        public string Email { get; private set; }
 
         /// <summary>
         /// Gets the date the customer account was created

@@ -25,13 +25,52 @@ namespace HelmerDemo.WebShop.Domain.CustomerModel
         /// </summary>
         public DateTime RegisteredOn { get; private set; }
 
-        
         /// <summary>
-        /// 
+        /// Initializes a new instance of the <see cref="CustomerEntity"/> class.
+        /// </summary>
+        internal CustomerEntity()
+        {
+        }
+
+        /// <summary>
+        /// Creates a new <see cref="CustomerEntity"/> (instead of factory pattern)
+        /// </summary>
+        /// <param name="fullName"></param>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        internal Result<CustomerEntity> CreateCustomer(string fullName, string email)
+        {
+            // validation
+
+            if (fullName.IsNullOrWhiteSpace())
+            {
+                return Result.BadRequest.DownCast<CustomerEntity>();
+            }
+
+            if (email.IsNullOrWhiteSpace())
+            {
+                return Result.BadRequest.DownCast<CustomerEntity>();
+            }
+
+            if (!email.IsValidEmail())
+            {
+                return Result.BadRequest.DownCast<CustomerEntity>();
+            }
+
+            var uniqueId = Guid.NewGuid();
+            var registeredOn = DateTime.Now;
+
+            var customer = new CustomerEntity(uniqueId, registeredOn, fullName, email);
+
+            return Result.Created.DownCast(customer);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CustomerEntity"/> class.
         /// </summary>
         /// <param name="fullName">The full name of the customer</param>
         /// <param name="email">The email of the customer</param>
-        internal CustomerEntity(Guid uniqueId, DateTime registeredOn, string fullName, string email)
+        private CustomerEntity(Guid uniqueId, DateTime registeredOn, string fullName, string email)
         {
             FullName = fullName;
             Email = email;
@@ -39,6 +78,5 @@ namespace HelmerDemo.WebShop.Domain.CustomerModel
             RegisteredOn = registeredOn;
         }
 
-        
     }
 }
