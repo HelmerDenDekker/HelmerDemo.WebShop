@@ -22,6 +22,8 @@ ConfigureRequestPipeline(builder.Build());
 static void AddServices(WebApplicationBuilder builder)
 {
     builder.Services.Configure<HeaderSettings>(options => builder.Configuration.GetSection("HeaderSettings").Bind(options));
+    var corsSettings = new CorsSettings();
+    builder.Configuration.GetSection("CorsSettings").Bind(corsSettings);
     builder.Services.AddTransient<ApiSecurityMiddleware>();
 
     if (IsDevelopment())
@@ -58,6 +60,17 @@ static void AddServices(WebApplicationBuilder builder)
 
     builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
     builder.Services.AddDbContext<CustomerDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("CustomerDatabase")));
+
+    // CORS
+    builder.Services.AddCors(options =>
+    options.AddPolicy(
+        name: "defaultCorsPolicy",
+        policy =>
+        {
+            policy.WithOrigins(corsSettings.AllowedOrigins);
+            policy.WithHeaders(corsSettings.AllowedHeaders);
+            policy.WithMethods(corsSettings.AllowedMethods);
+        }));
 }
 
 // Configure the HTTP request pipeline
