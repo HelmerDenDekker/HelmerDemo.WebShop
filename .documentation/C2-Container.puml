@@ -1,0 +1,36 @@
+@startuml WebshopContainer
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Container.puml
+LAYOUT_WITH_LEGEND()
+
+title 2. Container diagram for Webshop demo
+
+Person(visitor, "Visitor", "Visiting the website")
+Person(customer, "Customer", "Registered customer")
+
+System_Boundary(webshopsys, "WebshopDemo"){
+    Container(webshop, "SPA webshop ", "Container: VueJS", "Single page front end application")
+    Container(wshopapi, "Webshop API", "Container: dotNET Web API", "Webshop API")
+    'Container(wshopservice, "Webshop service", "Container: some pub-sub service", "In the future there will be a service")
+    ContainerDb(wshopdb, "Webshop Database", "Container: MsSQL", "Database, there is no design yet")
+    Container_Ext(logging, "SeriLog Logging", "Container: ....", "Central logging system for storing and querying logs")
+}
+
+System_Ext(payment, "Payment", "Some account service")
+System_Ext(account, "Account", "Some account service")
+System_Ext(shipping, "Shipping", "Some shipping service")
+
+
+
+Rel(visitor, webshop, "visits, views products")
+Rel(customer, account, "Authenticates to")
+Rel(webshop, wshopapi, "uses")
+Rel(wshopapi, account, "authentication and authorization")
+Rel(wshopapi, payment, "handles order payment")
+Rel(wshopapi, shipping, "handles order shipping")
+Rel(wshopapi, logging, "logs data")
+Rel(wshopapi, wshopdb, "stores and retrieves orders, products")
+Rel(customer, webshop, "visits, views products, orders, places orders, maintains wishlist")
+
+
+
+@enduml
