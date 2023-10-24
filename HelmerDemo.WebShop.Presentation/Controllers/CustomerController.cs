@@ -1,4 +1,5 @@
-﻿using HelmerDemo.WebShop.Application.CustomerService;
+﻿using Asp.Versioning;
+using HelmerDemo.WebShop.Application.CustomerService;
 using HelmerDemo.WebShop.Presentation.Helpers;
 using Microsoft.AspNetCore.Mvc;
 

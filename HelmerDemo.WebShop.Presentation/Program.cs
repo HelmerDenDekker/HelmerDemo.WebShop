@@ -1,5 +1,6 @@
-using Microsoft.AspNetCore.Mvc.Versioning.Conventions;
-using Microsoft.AspNetCore.Mvc.Versioning;
+using Asp.Versioning;
+using Asp.Versioning.ApiExplorer;
+using Asp.Versioning.Conventions;
 using Serilog;
 using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.AspNetCore.Mvc;
@@ -35,23 +36,26 @@ static void AddServices(WebApplicationBuilder builder)
     builder.Services.AddScoped<ICustomerAggregate, CustomerAggregate>();
     builder.Services.AddScoped<ICustomerRepository, CustomerRepository>();
 
-    // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+	// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 
-    builder.Services.AddApiVersioning(options =>
-    {
-        options.DefaultApiVersion = new ApiVersion(1, 0);
-        options.AssumeDefaultVersionWhenUnspecified = true;
-        options.ApiVersionReader = new UrlSegmentApiVersionReader();
-        options.Conventions.Add(new VersionByNamespaceConvention());
-    });
-    // Add ApiExplorer to discover versions
-    builder.Services.AddVersionedApiExplorer(setup =>
-    {
-        setup.GroupNameFormat = "'v'VVV";
-        setup.SubstituteApiVersionInUrl = true;
-    });
+	builder.Services.AddApiVersioning(options =>
+		{
+			options.DefaultApiVersion = new ApiVersion(1, 0);
+			options.AssumeDefaultVersionWhenUnspecified = true;
+			options.ApiVersionReader = new UrlSegmentApiVersionReader();
+		})
+		.AddMvc(options =>
+			{
+				options.Conventions.Add(new VersionByNamespaceConvention());
+			}
+		)
+		.AddApiExplorer(setup =>
+		{
+			setup.GroupNameFormat = "'v'VVV";
+			setup.SubstituteApiVersionInUrl = true;
+		});
 
-    builder.Services.AddEndpointsApiExplorer();
+	builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
 
     builder.Services.ConfigureOptions<ConfigureSwaggerOptions>();
@@ -77,6 +81,8 @@ static void ConfigureRequestPipeline(WebApplication app)
             }
         });
     }
+    
+    app.UseMiddleware<ApiSecurityMiddleware>();
 
     app.UseHttpsRedirection();
 
